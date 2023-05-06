@@ -2879,7 +2879,7 @@ async function run() {
     const postType = core.getInput("post_type");
     const postStatus = core.getInput("post_status");
 
-    const response = await createPost({
+    const { result } = await createPost({
       pageSecret,
       postTitle,
       postContent,
@@ -2887,7 +2887,7 @@ async function run() {
       postStatus,
     });
 
-    core.info(`Response: ${JSON.stringify(response)}`);
+    core.info(`Created Post with ID: ${result.id}`);
   } catch (error) {
     core.setFailed(error.message);
   }
