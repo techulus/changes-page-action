@@ -4,26 +4,26 @@ on:
   push:
     branches:
       - main
-      - 'releases/*'
+      - "releases/*"
 
 jobs:
   # unit tests
   units:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - run: npm ci
-    - run: npm test
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - run: npm test
 
   # test action works running from the graph
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./
-      with:
-        page_secret: ${{ secrets.PAGE_SECRET }}
-        post_title: "Test post"
-        post_content: "Test content"
-        post_type: "new"
-        post_status: "draft"
+      - uses: actions/checkout@v3
+      - uses: ./
+        with:
+          page_secret: ${{ secrets.PAGE_SECRET }}
+          post_title: "Test post from GitHub action"
+          post_content: "Test content"
+          post_type: "new"
+          post_status: "draft"
