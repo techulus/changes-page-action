@@ -22,4 +22,8 @@ jobs:
     - uses: actions/checkout@v3
     - uses: ./
       with:
-        milliseconds: 1000
+        page_secret: ${{ secrets.PAGE_SECRET }}
+        post_title: "Test post"
+        post_content: "Test content"
+        post_type: "new"
+        post_status: "draft"
