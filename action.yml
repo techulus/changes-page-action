@@ -1,7 +1,8 @@
 name: "Create changelog"
 description: "Create a post in changes.page"
-icon: "book-open"
-color: "purple"
+branding:
+  icon: "book-open"
+  color: "purple"
 inputs:
   page_secret:
     description: "Page integration secret from changes.page"
